@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <head>
+    <header>
       <nav class="container mx-auto mt-6">
         <div class="navbar bg-base-100">
           <div class="navbar-start">
@@ -134,15 +134,80 @@
             </div>
 
             <div>
-              <a class="btn bg-[#797DFC] text-white">Sign Up</a>
+              <a class="btn bg-[#797DFC] text-white hover:bg-blue-700"
+                >Sign Up</a
+              >
             </div>
           </div>
         </div>
       </nav>
-    </head>
-    
+    </header>
+
     <main>
-        <section></section>
+      <section class="container mx-auto mt-4">
+        <div
+          class="hero min-h-screen lg:min-h-96 bg-[#12122c] rounded-3xl"
+          style="background-image: url(images/bgbanner.png)"
+        >
+          <div class="hero-overlay rounded-3xl"></div>
+
+          <div
+            class="hero-content flex-col lg:flex-row text-center w-full lg:px-24 gap-8"
+          >
+            <div class="flex-1 w-full text-white">
+              <h1 class="mb-5 text-5xl font-bold text-left lg:leading-relaxed">
+                Welcome to the<br />
+                <span
+                  class="bg-gradient-to-r from-[#797DFC] to-blue-950 text-transparent bg-clip-text"
+                  >ReTro</span
+                >
+                Forum
+              </h1>
+              <p class="mb-5 text-left">
+                Share your favorite opinion and win and wp forum coffee mug!
+              </p>
+
+              <label
+                class="input input-bordered lg:w-5/6 flex items-center gap-2 text-black rounded-3xl"
+              >
+                <input
+                  type="text"
+                  class="grow"
+                  placeholder="Search here anything"
+                />
+                <button class="btn bg-[#797DFC] rounded-3xl text-white">
+                  Search
+                </button>
+              </label>
+            </div>
+
+            <div class="text-center text-black flex-1 w-full">
+              <div
+                class="hero-content text-center flex flex-col bg-slate-200 lg:mx-28 rounded-xl"
+              >
+                <div class="flex justify-between w-full">
+                  <h3>Registered Users</h3>
+                  <p>01</p>
+                </div>
+                <div class="flex justify-between w-full">
+                  <h3>Forum</h3>
+                  <p>01</p>
+                </div>
+                <div class="flex justify-between w-full">
+                  <h3>Topics</h3>
+                  <p>01</p>
+                </div>
+                <div class="flex justify-between w-full">
+                  <h3>Replies</h3>
+                  <p>01</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mx-auto mt-4"></section>
     </main>
   </body>
 </html>
