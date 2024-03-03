@@ -228,10 +228,26 @@
           </p>
         </div>
 
-        <div class="flex flex-col lg:flex-row items-center mt-4 lg:m-8 gap-8">
-          <div id="cardContainer" class="lg:w-1/2">
+        <!-- dynamically display posts -->
+        <div
+          class="flex flex-col lg:flex-row items-center mt-4 lg:m-8 gap-8 bg-blue-400"
+        >
+          <div id="discussionContainer" class="lg:w-1/2 flex flex-col gap-4">
             <!-- cards -->
-            <div class="card w-96 lg:w-full bg-base-100 shadow-xl">
+            <!-- <div class="card w-96 lg:w-full bg-base-100 shadow-xl flex-row">             
+              <div class="relative top-8 left-4">
+                <figure>
+                  <div
+                    class="border rounded-full w-4 h-4 bg-contain bg-slate-600 bg-no-repeat bg-center relative bottom-4 left-14"
+                  ></div>
+                  <img
+                    class="border rounded-full w-14 h-14 bg-contain bg-slate-600 bg-no-repeat bg-center"
+                    src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                    alt="Shoes"
+                  />
+                </figure>
+              </div>
+
               <div class="card-body divide-dashed divide-stone-600 divide-y-2">
                 <div>
                   <div class="flex">
@@ -273,30 +289,34 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div
             class="flex flex-col w-[90%] lg:w-1/2 bg-rose-50 rounded-xl lg:min-h-56 gap-4 p-4"
           >
-            <div class="flex justify-between items-center mb-4">
-              <h3 class="text-2xl font-semibold">Title</h3>
-              <p class="text-2xl font-semibold">
-                Mark as read ( <span id="counter">0</span> )
-              </p>
-            </div>
+            <div>
+              <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-semibold">Title</h3>
+                <p class="text-2xl font-semibold">
+                  Mark as read ( <span id="counter">0</span> )
+                </p>
+              </div>
 
-            <!-- read comments list -->
-            <div class="card w-full bg-base-100 shadow-xl">
-              <div class="card-body flex lg:flex-row">
-                <h2 class="card-title lg:w-1/2">Card title!</h2>
+              <!-- read comments list -->
+              <div class="card w-full bg-base-100 shadow-xl">
+                <div class="card-body flex lg:flex-row">
+                  <h2 class="card-title lg:w-1/2">Card title!</h2>
 
-                <div class="lg:w-1/2">
-                  <i class="fa-regular fa-eye">
-                    <span id="viewCounter">560</span>
-                  </i>
+                  <div class="lg:w-1/2">
+                    <i class="fa-regular fa-eye">
+                      <span id="viewCounter">560</span>
+                    </i>
+                  </div>
                 </div>
               </div>
+
+              <!-- end of read comments list -->
             </div>
           </div>
         </div>
