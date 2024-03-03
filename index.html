@@ -180,11 +180,13 @@
                 class="input input-bordered lg:w-5/6 flex items-center gap-2 text-black rounded-3xl"
               >
                 <input
+                  id="searchField"
                   type="text"
                   class="grow"
                   placeholder="Search here anything"
                 />
                 <button
+                  onclick="searchPosts()"
                   class="btn bg-[#797DFC] rounded-3xl text-white hover:bg-gray-700"
                 >
                   Search
@@ -229,23 +231,23 @@
         </div>
 
         <!-- dynamically display posts -->
-        <div
-          class="flex flex-col lg:flex-row items-center mt-4 lg:m-8 gap-8 bg-blue-400"
-        >
+        <div class="flex flex-col lg:flex-row mt-4 lg:m-8 gap-8 min-h-96">
           <div id="discussionContainer" class="lg:w-1/2 flex flex-col gap-4">
             <!-- cards -->
-            <!-- <div class="card w-96 lg:w-full bg-base-100 shadow-xl flex-row">             
-              <div class="relative top-8 left-4">
-                <figure>
+            <!-- <div class="card w-96 lg:w-full bg-base-100 shadow-xl lg:flex-row">
+              <div class="relative w-16 top-8 left-4">
+                <div class="bg-blue-700">
                   <div
-                    class="border rounded-full w-4 h-4 bg-contain bg-slate-600 bg-no-repeat bg-center relative bottom-4 left-14"
+                    class="border rounded-full w-4 h-4 bg-contain bg-slate-600 bg-no-repeat bg-center relative top-4 left-10"
                   ></div>
-                  <img
-                    class="border rounded-full w-14 h-14 bg-contain bg-slate-600 bg-no-repeat bg-center"
-                    src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                    alt="Shoes"
-                  />
-                </figure>
+                  <figure>
+                    <img
+                      class="border rounded-full w-14 h-14 bg-contain bg-slate-600 bg-no-repeat bg-center"
+                      src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                      alt="Shoes"
+                    />
+                  </figure>
+                </div>
               </div>
 
               <div class="card-body divide-dashed divide-stone-600 divide-y-2">
@@ -261,25 +263,22 @@
                 </div>
                 <div class="card-normal mt-2">
                   <div class="mt-4 flex justify-between items-center">
-                    <div class="flex justify-around gap-16">
-                      <div>
-                        <i class="fa-regular fa-message">
-                          <span id="msgCounter">560</span>
-                        </i>
+                    <div class="flex justify-around lg:gap-16 lg:w-full w-4/5">
+                      <div class="flex gap-4 items-center">
+                        <i class="fa-regular fa-message"> </i>
+                        <p id="msgCounter">560</p>
                       </div>
-                      <div>
-                        <i class="fa-regular fa-eye">
-                          <span id="viewCounter">560</span>
-                        </i>
+                      <div class="flex gap-4 items-center">
+                        <i class="fa-regular fa-eye"> </i>
+                        <p id="viewCounter">560</p>
                       </div>
-                      <div>
-                        <i class="fa-regular fa-clock">
-                          <span id="durationCounter">560</span>
-                        </i>
+                      <div class="flex gap-4 items-center">
+                        <i class="fa-regular fa-clock"> </i>
+                        <p id="durationCounter">560</p>
                       </div>
                     </div>
 
-                    <div>
+                    <div class="text-right w-1/5">
                       <button
                         class="btn rounded-full bg-green-600 hover:bg-blue-400"
                       >
@@ -293,7 +292,7 @@
           </div>
 
           <div
-            class="flex flex-col w-[90%] lg:w-1/2 bg-rose-50 rounded-xl lg:min-h-56 gap-4 p-4"
+            class="flex flex-col w-[90%] lg:w-1/2 bg-rose-50 rounded-xl gap-4 max-h-fit p-4"
           >
             <div>
               <div class="flex justify-between items-center mb-4">
@@ -306,12 +305,11 @@
               <!-- read comments list -->
               <div class="card w-full bg-base-100 shadow-xl">
                 <div class="card-body flex lg:flex-row">
-                  <h2 class="card-title lg:w-1/2">Card title!</h2>
+                  <h2 class="card-title lg:w-4/5">Card title!</h2>
 
-                  <div class="lg:w-1/2">
-                    <i class="fa-regular fa-eye">
-                      <span id="viewCounter">560</span>
-                    </i>
+                  <div class="lg:w-1/5 flex gap-4 items-center">
+                    <i class="fa-regular fa-eye"></i>
+                    <p class="text-base" id="viewCounter">560</p>
                   </div>
                 </div>
               </div>

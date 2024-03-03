@@ -45,33 +45,43 @@ const displayLatestPosts = posts => {
     })
 }
 
-const allPost = async () => {
-    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
+
+const categoryBasedPost = async (search) => {
+    let res = '';
+    if(search){
+        res = await fetch(` https://openapi.programming-hero.com/api/retro-forum/posts?category=${search}`);
+    }else(
+        res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`)
+    )
     const data = await res.json();
     displayAllPost(data.posts);
+    // displayAllPost(data.posts);
+    console.log(data.posts)
 }
 
 const displayAllPost = displayPosts => {    
-    // console.log(displayPosts.posts);
 
     const discussionContainer = document.getElementById("discussionContainer");
+    discussionContainer.textContent = '';
 
     displayPosts.forEach(displayPost => {
 
         const postDiv = document.createElement("div");
-        postDiv.classList = `card w-96 lg:w-full bg-base-100 shadow-xl  flex-row`;
+        postDiv.classList = `card w-96 lg:w-full bg-base-100 shadow-xl  lg:flex-row`;
         postDiv.innerHTML = `
-        <div class="relative top-8 left-4">
+        <div class=" w-16 relative top-8 left-4">
+            <div>
+                <div
+                    class="border rounded-full w-4 h-4 bg-contain ${displayPost.isActive? "bg-green-600": "bg-red-600"}  bg-no-repeat bg-center relative top-4 left-10"
+                ></div>
                 <figure>
-                    <div
-                    class="border rounded-full w-4 h-4 bg-contain bg-green-600 bg-no-repeat bg-center relative bottom-4 left-14"
-                  ></div>
                   <img
                     class="border rounded-full w-14 h-14 bg-contain bg-slate-600 bg-no-repeat bg-center"
                     src="${displayPost.image}"
                     alt="Shoes"
                   />
                 </figure>
+            </div>
         </div>
         <div class="card-body divide-dashed divide-stone-600 divide-y-2">
                 <div>
@@ -85,8 +95,8 @@ const displayAllPost = displayPosts => {
                   </p>
                 </div>
                 <div class="card-normal mt-2">
-                  <div class="mt-4 flex justify-between items-center">
-                    <div class="flex justify-around gap-16">
+                  <div class="mt-4 flex lg:justify-between justify-start items-center">
+                    <div class="flex justify-around lg:gap-16 w-4/5">
                       <div class="flex gap-4 items-center">
                         <i class="fa-regular fa-message"></i>                        
                         <p class="text-base" id="msgCounter">${displayPost.comment_count}</p>
@@ -101,7 +111,7 @@ const displayAllPost = displayPosts => {
                       </div>
                     </div>
 
-                    <div>
+                    <div class="text-right w-1/5">
                       <button
                         class="btn rounded-full bg-green-600 hover:bg-blue-400"
                       >
@@ -118,5 +128,17 @@ const displayAllPost = displayPosts => {
     })
 }
 
-allPost();
+// search
+const searchPosts = () => {
+    const searchField = document.getElementById('searchField');
+    const searchText = searchField.value;
+    console.log(searchText);
+    categoryBasedPost(searchText);
+
+}
+
+
+
+// allPost();
+categoryBasedPost();
 latestPost();
