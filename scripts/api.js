@@ -67,6 +67,7 @@ const displayAllPost = displayPosts => {
     discussionContainer.textContent = '';
 
     displayPosts.forEach(displayPost => {
+        toggleLoading(false);
 
         const postDiv = document.createElement("div");
         postDiv.classList = `card w-96 lg:w-full bg-base-100 shadow-xl  lg:flex-row`;
@@ -131,6 +132,9 @@ const displayAllPost = displayPosts => {
         
     });
 
+    // hide loading spinner
+    // toggleLoading(false);
+
     const titlePost = document.querySelectorAll("#titlePost");
     const counter = document.querySelectorAll("#viewCounter");
     const viewCountBtns = document.querySelectorAll(".viewCountBtn");
@@ -180,6 +184,7 @@ const displayAllPost = displayPosts => {
 
 // search
 const searchPosts = () => {
+    toggleLoading(true);
     const searchField = document.getElementById('searchField');
     const searchText = searchField.value;
     // console.log(searchText);
@@ -187,7 +192,19 @@ const searchPosts = () => {
 
 }
 
-
+// loading spinner
+const toggleLoading = (isLoading) => {
+    const spinner = document.getElementById('loading');
+    if(isLoading){        
+        spinner.classList.remove('hidden');
+    }else{
+        setTimeout(() => {
+            spinner.classList.add('hidden');
+        }, 2000);
+        
+    }
+    
+}
 
 categoryBasedPost();
 latestPost();
