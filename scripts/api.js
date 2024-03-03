@@ -1,3 +1,6 @@
+let count = 0;
+
+
 const latestPost = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
     const data = await res.json();
@@ -13,13 +16,13 @@ const displayLatestPosts = posts => {
         const cardsDiv = document.createElement('div');
         cardsDiv.classList = `card w-96 bg-base-100 shadow-xl`;
         cardsDiv.innerHTML = `
-        <figure>
+            <figure>
               <img
                 src="${post.cover_image}"
                 alt="Shoes"
               />
             </figure>
-            <div class="card-body">
+            <div class="card-body h-80">
               <div class="flex gap-4 items-center">
                 <i class="fa-regular fa-calendar"></i>
                 <p class="text-base" id="latestPostDate">${post.author?.posted_date || "No publish date"}</p>
@@ -55,8 +58,7 @@ const categoryBasedPost = async (search) => {
     )
     const data = await res.json();
     displayAllPost(data.posts);
-    // displayAllPost(data.posts);
-    console.log(data.posts)
+    // console.log(data.posts)
 }
 
 const displayAllPost = displayPosts => {    
@@ -89,7 +91,7 @@ const displayAllPost = displayPosts => {
                     <p># ${displayPost.category}</p>
                     <p>Author : ${displayPost.author.name}</p>
                   </div>
-                  <h2 class="card-title mt-2">${displayPost.title}</h2>
+                  <h2 class="card-title mt-2" id="titlePost">${displayPost.title}</h2>
                   <p class="text-base mt-2">
                   ${displayPost.description}
                   </p>
@@ -113,7 +115,7 @@ const displayAllPost = displayPosts => {
 
                     <div class="text-right w-1/5">
                       <button
-                        class="btn rounded-full bg-green-600 hover:bg-blue-400"
+                        class="viewCountBtn btn rounded-full bg-green-600 hover:bg-blue-400"
                       >
                         <i class="fa-regular fa-envelope-open"></i>
                       </button>
@@ -124,21 +126,68 @@ const displayAllPost = displayPosts => {
         `; 
 
         discussionContainer.appendChild(postDiv);
+        
+        // viewCountBtn(displayPost.title, displayPost.view_count);
+        
+    });
 
-    })
+    const titlePost = document.querySelectorAll("#titlePost");
+    const counter = document.querySelectorAll("#viewCounter");
+    const viewCountBtns = document.querySelectorAll(".viewCountBtn");
+    
+    const viewCounterContainer = document.getElementById("viewCounterContainer");
+
+    for (var i = 0; i < viewCountBtns.length; i++){
+
+            const viewCountBtn = viewCountBtns[i];
+            
+            let title = titlePost[i];
+            let viewCounter = counter[i];
+
+            // console.log(viewCountBtns[i], title, viewCounter);
+
+        
+        viewCountBtn.addEventListener('click', () =>{
+            console.log(viewCountBtn.innerHTML, title.innerText, viewCounter.innerText);
+            
+            const titleName = title.innerText;
+            const viewCount = viewCounter.innerText;
+
+            const viewDiv = document.createElement("div");
+            viewDiv.classList = `card w-full bg-base-100 shadow-xl mt-4`;
+            viewDiv.innerHTML = `
+                <div class="card-body flex lg:flex-row">
+                    <h2 class="card-title lg:w-4/5">${title.innerText}</h2>
+
+                    <div class="lg:w-1/5 flex gap-4 items-center">
+                        <i class="fa-regular fa-eye"></i>
+                        <p class="text-base" id="viewCounter">${viewCounter.innerText}</p>
+                    </div>
+                </div>
+            `;
+
+            viewCounterContainer.appendChild(viewDiv);
+
+            count++; // increment read counter
+
+            document.getElementById("counter").innerText = count;
+            // console.log(titleName, viewCount,viewDiv.id);
+        });
+    }
+    
+
 }
 
 // search
 const searchPosts = () => {
     const searchField = document.getElementById('searchField');
     const searchText = searchField.value;
-    console.log(searchText);
+    // console.log(searchText);
     categoryBasedPost(searchText);
 
 }
 
 
 
-// allPost();
 categoryBasedPost();
 latestPost();
