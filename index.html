@@ -16,7 +16,7 @@
 
   <body>
     <head>
-      <nav class="container mx-auto">
+      <nav class="container mx-auto mt-6">
         <div class="navbar bg-base-100">
           <div class="navbar-start">
             <div class="dropdown">
@@ -38,42 +38,111 @@
               </div>
               <ul
                 tabindex="0"
-                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box"
               >
-                <li><a>Item 1</a></li>
                 <li>
-                  <a>Parent</a>
-                  <ul class="p-2">
-                    <li><a>Submenu 1</a></li>
-                    <li><a>Submenu 2</a></li>
-                  </ul>
+                  <a class="tooltip" data-tip="Home">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                      />
+                    </svg>
+                  </a>
                 </li>
-                <li><a>Item 3</a></li>
+                <li>
+                  <a class="tooltip" data-tip="Tooltip">
+                    <img
+                      class="h-5 w-5"
+                      src="images/pencil.png"
+                      alt="Tooltip"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a class="tooltip" data-tip="Add User">
+                    <img
+                      class="h-5 w-5"
+                      src="images/add-user.png"
+                      alt="Tooltip"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a class="tooltip" data-tip="Bookmark">
+                    <img class="h-5 w-5" src="images/flag.png" alt="Tooltip" />
+                  </a>
+                </li>
               </ul>
             </div>
             <a class="btn btn-ghost text-2xl font-extrabold">ReTro</a>
           </div>
-          <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
-              <li><a>Item 1</a></li>
-              <li>
-                <details>
-                  <summary>Parent</summary>
-                  <ul class="p-2">
-                    <li><a>Submenu 1</a></li>
-                    <li><a>Submenu 2</a></li>
-                  </ul>
-                </details>
-              </li>
-              <li><a>Item 3</a></li>
-            </ul>
-          </div>
+
           <div class="navbar-end">
-            <a class="btn bg-[#797DFC] text-white">Sign Up</a>
+            <div class="hidden lg:flex">
+              <ul class="menu menu-horizontal bg-base-200 rounded-box">
+                <li>
+                  <a class="tooltip" data-tip="Home">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="tooltip" data-tip="Tooltip">
+                    <img
+                      class="h-5 w-5"
+                      src="images/pencil.png"
+                      alt="Tooltip"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a class="tooltip" data-tip="Add User">
+                    <img
+                      class="h-5 w-5"
+                      src="images/add-user.png"
+                      alt="Tooltip"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a class="tooltip" data-tip="Bookmark">
+                    <img class="h-5 w-5" src="images/flag.png" alt="Tooltip" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <a class="btn bg-[#797DFC] text-white">Sign Up</a>
+            </div>
           </div>
         </div>
       </nav>
     </head>
-    <main></main>
+    
+    <main>
+        <section></section>
+    </main>
   </body>
 </html>
